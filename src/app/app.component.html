@@ -1,0 +1,44 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Covid NSW
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img class="avatar mat-elevation-z8" src="https://scattered.com.au/images/dw_sq_100.jpg" />
+
+    <h4 class="name">Dave</h4>
+    <p class="designation">I make things</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" [routerLink]="'/'">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" [routerLink]="'/location-map'">
+      <mat-icon>place</mat-icon>
+      <span>Locations</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" [routerLink]="'/about'">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
